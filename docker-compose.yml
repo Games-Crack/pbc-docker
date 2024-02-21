@@ -1,0 +1,12 @@
+services:
+  proxmox-backup-client:
+    image: ghcr.io/games-crack/pbc-docker:main
+    container_name: proxmox-backup-client
+    restart: unless-stopped
+    volumes:
+      # - path/to/be/backuped:/backup
+      - ./config:/config
+    environment:
+      CRON_SCHEDULE: "0 0 * * *"
+      BACKUP_CMD: "proxmox-backup-client ...Arguments Here..."
+    stop_signal: SIGKILL

@@ -9,4 +9,5 @@ services:
     environment:
       CRON_SCHEDULE: "0 0 * * *"
       BACKUP_CMD: "proxmox-backup-client ...Arguments Here..."
+      # You can add PBS_* Vars Here
     stop_signal: SIGKILL
